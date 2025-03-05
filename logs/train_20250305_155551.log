@@ -1,0 +1,54 @@
+Starting train at Wed Mar  5 03:55:51 PM EST 2025
+Using device: cuda
+Fixed test set will be used from: splits/TCGA_BRCA/test.csv
+
+==================================================
+Split 0
+==================================================
+Training with data: splits/TCGA_BRCA/train0.csv
+Validation with data: splits/TCGA_BRCA/val0.csv
+Testing with data: splits/TCGA_BRCA/test.csv
+Train: 434 samples, Val: 53 samples, Test: 169 samples
+/isilon/datalake/cialab/scratch/cialab/yxguo/projects/breast_cancer/VLM/record/breast_cancer_model.py:70: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  slide_features = torch.load(row['path'], map_location='cpu')
+/isilon/datalake/cialab/scratch/cialab/yxguo/projects/breast_cancer/VLM/record/breast_cancer_model.py:70: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  slide_features = torch.load(row['path'], map_location='cpu')
+/isilon/datalake/cialab/scratch/cialab/yxguo/projects/breast_cancer/VLM/record/breast_cancer_model.py:70: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  slide_features = torch.load(row['path'], map_location='cpu')
+/isilon/datalake/cialab/scratch/cialab/yxguo/projects/breast_cancer/VLM/record/breast_cancer_model.py:70: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  slide_features = torch.load(row['path'], map_location='cpu')
+Traceback (most recent call last):
+  File "main_experiment.py", line 358, in <module>
+    run_experiment(args)
+  File "main_experiment.py", line 145, in run_experiment
+    metrics = train_and_evaluate_split(
+  File "main_experiment.py", line 310, in train_and_evaluate_split
+    trained_model, history = train_model(
+  File "/isilon/datalake/cialab/scratch/cialab/yxguo/projects/breast_cancer/VLM/record/breast_cancer_model.py", line 320, in train_model
+    outputs = model(slide_features, clinical_features)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/isilon/datalake/cialab/scratch/cialab/yxguo/projects/breast_cancer/VLM/record/breast_cancer_model.py", line 224, in forward
+    pooled_slide_features, attention_weights = self.attention_pool(slide_features)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/isilon/datalake/cialab/scratch/cialab/yxguo/projects/breast_cancer/VLM/record/breast_cancer_model.py", line 130, in forward
+    a = self.attention(x)  # [batch_size, num_patches, 1]
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/nn/modules/linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (4290x768 and 1024x128)
+Finished at Wed Mar  5 03:55:57 PM EST 2025

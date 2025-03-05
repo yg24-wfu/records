@@ -1,0 +1,47 @@
+Starting train at Wed Mar  5 03:53:50 PM EST 2025
+Using device: cuda
+Fixed test set will be used from: splits/TCGA_BRCA/test.csv
+
+==================================================
+Split 0
+==================================================
+Training with data: splits/TCGA_BRCA/train0.csv
+Validation with data: splits/TCGA_BRCA/val0.csv
+Testing with data: splits/TCGA_BRCA/test.csv
+Train: 434 samples, Val: 53 samples, Test: 169 samples
+Traceback (most recent call last):
+  File "main_experiment.py", line 358, in <module>
+    run_experiment(args)
+  File "main_experiment.py", line 145, in run_experiment
+    metrics = train_and_evaluate_split(
+  File "main_experiment.py", line 310, in train_and_evaluate_split
+    trained_model, history = train_model(
+  File "/isilon/datalake/cialab/scratch/cialab/yxguo/projects/breast_cancer/VLM/record/breast_cancer_model.py", line 313, in train_model
+    for batch in train_loader:
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1344, in _next_data
+    return self._process_data(data)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1370, in _process_data
+    data.reraise()
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/_utils.py", line 706, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 309, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/_utils/collate.py", line 317, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/_utils/collate.py", line 155, in collate
+    clone.update({key: collate([d[key] for d in batch], collate_fn_map=collate_fn_map) for key in elem})
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/_utils/collate.py", line 155, in <dictcomp>
+    clone.update({key: collate([d[key] for d in batch], collate_fn_map=collate_fn_map) for key in elem})
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/_utils/collate.py", line 142, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "/home/yoguo/.local/lib/python3.8/site-packages/torch/utils/data/_utils/collate.py", line 213, in collate_tensor_fn
+    out = elem.new(storage).resize_(len(batch), *list(elem.size()))
+RuntimeError: Trying to resize storage that is not resizable
+
+Finished at Wed Mar  5 03:53:56 PM EST 2025
